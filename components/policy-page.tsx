@@ -2,7 +2,8 @@ import { ArrowLeft } from 'lucide-react';
 import { CocuriaFooter } from '@/components/cocuria-footer';
 import { CocuriaHeader } from '@/components/cocuria-header';
 
-export function PolicyPage({ title, eyebrow, sections }) {
+export default function PolicyPage({ title, eyebrow, sections }) {
+  
   return (
     <>
       <CocuriaHeader />
