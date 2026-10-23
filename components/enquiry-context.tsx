@@ -3,7 +3,7 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 import { Activity } from '@/lib/cocuria-data';
 
-type FormData = {
+export type FormData = {
   ageGroup: 'under-18' | 'adult' | '';
   activity: string;
   subStyle: string;
@@ -55,6 +55,7 @@ export function EnquiryProvider({ children }: { children: React.ReactNode }) {
   const showSuccess = (reference: string) => setSubmittedRef(reference);
   const resetEnquiry = () => { setFormData(emptyForm); setStep(1); setSubmittedRef(null); };
   const value = useMemo(() => ({ isOpen, step, formData, submittedRef, openEnquiryModal, closeEnquiryModal, updateForm, nextStep, previousStep, showSuccess, resetEnquiry }), [isOpen, step, formData, submittedRef]);
+
   return <EnquiryContext.Provider value={value}>{children}</EnquiryContext.Provider>;
 }
 
@@ -62,4 +63,4 @@ export function useEnquiry() {
   const context = useContext(EnquiryContext);
   if (!context) throw new Error('useEnquiry must be used within EnquiryProvider');
   return context;
-  }
+                 }
